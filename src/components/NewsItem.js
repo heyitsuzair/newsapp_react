@@ -9,14 +9,10 @@ export class NewsItem extends Component {
       <div className="my-2">
         <div className="card" style={{ width: "18rem" }}>
           <img
-            src={
-              !imgUrl
-                ? "https://img.etimg.com/thumb/msid-92796796,width-1070,height-580,imgsize-88002,overlay-etpanache/photo.jpg"
-                : imgUrl
-            }
+            src={imgUrl}
             className="card-img-top"
-            alt="..."
             style={{ height: "200px" }}
+            alt=""
           />
           <div className="card-body">
             <span
