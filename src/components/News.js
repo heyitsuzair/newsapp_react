@@ -26,6 +26,7 @@ const News = (props) => {
 
   useEffect(() => {
     updateNews();
+    // eslint-disable-next-line
   }, []);
 
   // const handleNextClick = async () => {
@@ -36,9 +37,14 @@ const News = (props) => {
   //   setPage(page - 1);
   //   updateNews();
   // };
+
   const fetchMoreData = async () => {
+    let url = `https://newsapi.org/v2/top-headlines?country=${
+      props.country
+    }&category=${props.category}&apiKey=${props.apiKey}&page=${
+      page + 1
+    }&pageSize=${props.pageSize}`;
     setPage(page + 1);
-    let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
     setLoading(true);
     let data = await fetch(url);
     let parsedData = await data.json();
@@ -49,7 +55,9 @@ const News = (props) => {
 
   return (
     <div className="container my-3 text-center">
-      <h2>Newsapp - Top Headlines On {props.category.toUpperCase()}</h2>
+      <h2 style={{ marginTop: "90px" }}>
+        Newsapp - Top Headlines On {props.category.toUpperCase()}
+      </h2>
       {loading && <Spinner />}
       <InfiniteScroll
         dataLength={articles.length}
