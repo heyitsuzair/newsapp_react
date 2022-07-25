@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import News from "./components/News";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
